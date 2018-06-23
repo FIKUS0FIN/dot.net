@@ -1,16 +1,16 @@
-version: "3"
+version: '2'
 services:
-
   jenkins:
-    image: jenkins/jenkins:lts
+    image: 'bitnami/jenkins:latest'
+    labels:
+      kompose.service.type: nodeport
     ports:
-      - "80:8080"
-      - "5000:5000"
+      - '80:8080'
+      - '443:8443'
+      - '50000:50000'
     volumes:
-      - jenkins_home:/var/jenkins_home
-    deploy:
-      replicas: 1
-      restart_policy:
-        condition: on-failure
-    
+      - 'jenkins_data:/bitnami/jenkins'
+volumes:
+  jenkins_data:
+    driver: local
 #docker run -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home jenkins/jenkins:lts
