@@ -5,6 +5,10 @@ pipeline {
       agent any
       steps {
         sh 'echo "$PWD"'
+        sshagent(ignoreMissing: true) {
+          sh 'echo test'
+        }
+        
       }
     }
   }
