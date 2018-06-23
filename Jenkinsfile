@@ -4,11 +4,11 @@ pipeline {
     stage('echo') {
       agent any
       steps {
-        sh 'echo "$PWD"'
-        sshagent(ignoreMissing: true) {
-          sh 'echo test'
+        timestamps() {
+          pwd(tmp: true)
         }
-        
+
+        pwd(tmp: true)
       }
     }
   }
