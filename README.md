@@ -15,7 +15,11 @@ Create Dot net CI\CD server
     sudo chmod +x /usr/local/bin/docker-compose
     docker-compose --version
 
+JENKINS_USERNAME: Jenkins admin username. Default: user
+JENKINS_PASSWORD: Jenkins admin password. Default: bitnami
 
+## jenkins plagines
+    - blue ocean
 ## COMMAND STACK
 
 sudo docker-compose -f docker-compose.yml up 

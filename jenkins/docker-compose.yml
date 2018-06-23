@@ -1,15 +1,13 @@
 version: '2'
 services:
   jenkins:
-    image: 'bitnami/jenkins:latest'
-    labels:
-      kompose.service.type: nodeport
+    image: 'jenkins:latest'
     ports:
       - '80:8080'
       - '443:8443'
       - '50000:50000'
     volumes:
-      - 'jenkins_data:/bitnami/jenkins'
+      - 'jenkins:/var/jenkins_home'
 volumes:
-  jenkins_data:
+  jenkins:
     driver: local
