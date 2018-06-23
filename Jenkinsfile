@@ -1,14 +1,14 @@
 pipeline {
-  agent any
+  agent {
+    docker {
+      image 'busybox'
+    }
+
+  }
   stages {
     stage('echo') {
-      agent any
       steps {
-        timestamps() {
-          pwd(tmp: true)
-        }
-
-        pwd(tmp: true)
+        sh 'echo "$PWD"'
       }
     }
   }
