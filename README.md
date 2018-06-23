@@ -11,7 +11,13 @@ Create Dot net CI\CD server
     sudo apt-get update
     sudo apt-get install dotnet-sdk-2.1
 
+    sudo curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+    sudo chmod +x /usr/local/bin/docker-compose
+    docker-compose --version
+
 
 ## COMMAND STACK
 
-docker stack deploy --compose-file docker-compose.yml
+sudo docker-compose -f docker-compose.yml up 
+
+docker stack deploy --compose-file docker-compose.yml 
